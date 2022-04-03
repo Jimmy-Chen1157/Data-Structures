@@ -14,6 +14,29 @@ void printList(Node* head){
     }
 }
 
+void insertAtFront(Node* *head, int d){
+
+    Node* ptr = new Node();
+    ptr->data = d;
+    ptr->next = *head;
+    *head = ptr;
+}
+
+void insertAtEnd(Node* *head, int d){
+    Node* ptr = new Node();
+    Node* temp = *head;
+    ptr->data = d;
+    ptr->next = NULL;
+    if (*head == NULL){
+        *head = ptr;
+        return;
+    }
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    temp->next = ptr;
+}
+
 int main(){
     Node* head = new Node();
     Node* second = new Node();
@@ -26,6 +49,8 @@ int main(){
     third->data = 3;
     third->next = NULL;
 
+    insertAtFront(&head, 0);
+    insertAtEnd(&head, 4);
     printList(head);
 
     return 0;
