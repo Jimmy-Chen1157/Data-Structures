@@ -1,0 +1,37 @@
+
+A data structure is a way to store
+and organize data in a computer, so
+that it can be used efficiently
+
+Abstract data types(ADTs)
+
+    - define data and operations,
+      but no implementation
+
+
+List --- ADT
+    - Store a given number of elements of
+      any type
+    - Read elements by position
+    - Modify element at a position
+
+Arrays --- Concrete Implement
+
+Linked List
+
+Stack
+
+Queue
+
+Tree
+
+Graph
+.
+.
+.
+
+
+1. Logical view
+2. operations
+3. cost of operations
+4. implementation

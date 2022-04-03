@@ -1,0 +1,23 @@
+
+                      Array                             Linked List
+-------------------------------------------------------------------------------
+1. cost of       |    O(1)                                   O(n)
+   accessing an  |
+   element       |
+-------------------------------------------------------------------------------
+2. Memory        |  - fixed size                    - No unused memory
+   requirements  |  - memory may not                - extra memory for
+                 |    be available as                 pointer variables
+                 |    one large block               - memory may be available
+                 |                                    as multiple small blocks
+-------------------------------------------------------------------------------
+3. cost of       | a) at beginning - O(n)                   O(1)
+   inserting an  | b) at end - O(1) - if array              O(n)
+   element       |                    isn't full
+                 |           - O(n) - if array
+                 |                    is full
+                 | c) at ith position - O(n)                O(n)
+-------------------------------------------------------------------------------
+4. ease of use   |    easier                              more thrown to errors
+                 |                                        segmentation fault
+-------------------------------------------------------------------------------

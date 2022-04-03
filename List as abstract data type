@@ -1,0 +1,39 @@
+
+List as abstract data type
+
+- Store a given number of elements of
+  a given data-type
+- Write/modify element of a position
+- Read element at a position
+
+Arrays
+
+int a[10];
+a[i] = 2
+print a[i];
+
+- empty list has size 0
+- insert -|
+- remove -| -- shift
+- count
+- Read/modify element at a
+  position
+- specify data-type
+
+int a[maxsize];
+int end=-1;
+insert(2);
+
+when array is full, create
+new larger array of double size,
+copy elements from previous array
+into the new array.
+free the memory for the previous
+array.
+
+problem : Not dynamic
+
+1. Access - Read/write element at an index - Constant time - O(1)
+2. Insert - shift - O(n)
+3. Remove - O(n)
+4. Add - O(n)

@@ -1,0 +1,14 @@
+
+Introduction to linked list
+
+struct Node{
+    int data; // 4 bytes
+    Node* next; // 4 bytes
+}
+
+- address of the head node
+  gives us access of the complete
+  list
+
+1. Access to elements - O(n)
+2. Insertion - O(n)
