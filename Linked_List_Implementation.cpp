@@ -37,6 +37,16 @@ void insertAtEnd(Node* *head, int d){
     temp->next = ptr;
 }
 
+void insertAfter(Node *previous, int d){
+    if (previous == NULL){
+        return;
+    }
+    Node *ptr = new Node();
+    ptr->data = d;
+    ptr->next = previous->next;
+    previous->next = ptr;
+}
+
 int main(){
     Node* head = new Node();
     Node* second = new Node();
@@ -51,6 +61,7 @@ int main(){
 
     insertAtFront(&head, 0);
     insertAtEnd(&head, 4);
+    insertAfter(head, -1);
     printList(head);
 
     return 0;
