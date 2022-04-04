@@ -1,0 +1,53 @@
+
+We can implement stacks using :
+--------------------------------
+1. Arrays
+2. Linked Lists
+--------------------------------
+
+
+Array implementation
+
+int A[10]
+top <- -1   // empty stack
+
+push(x){
+    top <- top+1
+    A[top] <- x
+}
+
+pop(){
+    top <- top-1
+}
+
+top(){
+    return A[top]
+}
+
+IsEmpty(){
+    if (top == -1){
+        return true
+    }
+    else{
+        return false
+    }
+}
+
+Overflow -> create a larger array
+            twice the size of the
+            smaller array, copy
+            all elements.
+
+            push - O(1) - best case
+                 - O(n) - worst case
+                 - O(1) - average case
+
+--------------------------------
+
+Linked List Implementation
+
+
+
+
+
+
