@@ -7,6 +7,13 @@ struct Node{
     Node* next;
 };
 
+Node* GetNewNode(int d){
+    Node* newNode = new Node();
+    newNode->data = d;
+    newNode->next = NULL;
+    return newNode;
+}
+
 void printList(Node* head){
     while(head != NULL){
         cout << head->data << " ";
@@ -17,17 +24,14 @@ void printList(Node* head){
 
 void insertAtFront(Node* *head, int d){
 
-    Node* ptr = new Node();
-    ptr->data = d;
+    Node* ptr = GetNewNode(d);
     ptr->next = *head;
     *head = ptr;
 }
 
 void insertAtEnd(Node* *head, int d){
-    Node* ptr = new Node();
+    Node* ptr = GetNewNode(d);
     Node* temp = *head;
-    ptr->data = d;
-    ptr->next = NULL;
     if (*head == NULL){
         *head = ptr;
         return;
@@ -40,10 +44,8 @@ void insertAtEnd(Node* *head, int d){
 
 void insertAt(Node* *head,int n, int d){
 
-    Node *ptr = new Node();
+    Node *ptr = GetNewNode(d);
     Node *temp = *head;
-    ptr->data = d;
-    ptr->next = NULL;
     if (*head == NULL){
         *head = ptr;
         return;
@@ -103,7 +105,43 @@ void reversePrint(Node *head){
     cout << head->data << " ";
 }
 
+struct DoubleLinkedNode{
+    int data;
+    DoubleLinkedNode* next;
+    DoubleLinkedNode* prev;
+};
+
+DoubleLinkedNode* GetNewDNode(int d){
+    DoubleLinkedNode* newNode = new DoubleLinkedNode();
+    newNode->prev = NULL;
+    newNode->next = NULL;
+    newNode->data = d;
+    return newNode;
+}
+
+void DinsertAtHead(DoubleLinkedNode* *head, int d){
+    DoubleLinkedNode* temp = GetNewDNode(d);
+    DoubleLinkedNode* temp1 = *head;
+    if (*head == NULL){
+        *head = temp;
+        return;
+    }
+    temp1->prev = temp;
+    temp->next = *head;
+    *head = temp;
+}
+
+void printDList(DoubleLinkedNode *head){
+    while (head != NULL){
+        cout << head->data << " ";
+        head = head->next;
+    }
+    cout << endl;
+}
+
 int main(){
+    // Linked
+
     Node* head = NULL;
     // Node* second = new Node();
     // Node* third = new Node();
@@ -126,6 +164,18 @@ int main(){
     reverse(&head);
     printList(head);
     // reversePrint(head);
+
+    // Double Linked
+
+    DoubleLinkedNode* Dhead = NULL;
+
+    DinsertAtHead(&Dhead, 1);
+    DinsertAtHead(&Dhead, 2);
+    DinsertAtHead(&Dhead, 3);
+    DinsertAtHead(&Dhead, 4);
+
+    printDList(Dhead);
+
     return 0;
 }
 
