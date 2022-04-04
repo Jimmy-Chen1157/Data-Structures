@@ -12,6 +12,7 @@ void printList(Node* head){
         cout << head->data << " ";
         head = head->next;
     }
+    cout << endl;
 }
 
 void insertAtFront(Node* *head, int d){
@@ -37,31 +38,84 @@ void insertAtEnd(Node* *head, int d){
     temp->next = ptr;
 }
 
-void insertAfter(Node *previous, int d){
-    if (previous == NULL){
+void insertAt(Node* *head,int n, int d){
+
+    Node *ptr = new Node();
+    Node *temp = *head;
+    ptr->data = d;
+    ptr->next = NULL;
+    if (*head == NULL){
+        *head = ptr;
         return;
     }
-    Node *ptr = new Node();
-    ptr->data = d;
-    ptr->next = previous->next;
-    previous->next = ptr;
+    if (n == 0){
+        ptr->next = *head;
+        *head = ptr;
+        return;
+    }
+    int i = 0;
+    while (temp->next != NULL && i < n-1){
+        temp = temp->next;
+        i++;
+    }
+    ptr->next = temp->next;
+    temp->next = ptr;
+}
+
+void deleteAt(Node* *head, int n){
+    Node* temp = *head;
+    if (head == NULL){
+        return;
+    }
+    if (n == 0){
+        *head = temp->next;
+        free(temp);
+        return;
+    }
+    int i = 0;
+    while(i < n-1){
+        temp = temp->next;
+        i++;
+    }
+    Node* temp1 = temp->next;
+    temp->next = temp1->next;
+    free(temp1);
+}
+
+void reverse(Node* *head){
+    Node *current, *prev, *next;
+    current = *head;
+    prev = NULL;
+    while(current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    *head = prev;
 }
 
 int main(){
-    Node* head = new Node();
-    Node* second = new Node();
-    Node* third = new Node();
+    Node* head = NULL;
+    // Node* second = new Node();
+    // Node* third = new Node();
 
-    head->data = 1;
-    head->next = second;
-    second->data = 2;
-    second->next = third;
-    third->data = 3;
-    third->next = NULL;
+    // head->data = 1;
+    // head->next = second;
+    // second->data = 2;
+    // second->next = third;
+    // third->data = 3;
+    // third->next = NULL;
 
-    insertAtFront(&head, 0);
+    // insertAtFront(&head, 0);
     insertAtEnd(&head, 4);
-    insertAfter(head, -1);
+    insertAtEnd(&head, 0);
+    insertAtEnd(&head, 1);
+    insertAtEnd(&head, 2);
+    insertAt(&head, 0, -1);
+    // deleteAt(&head, 0);
+    printList(head);
+    reverse(&head);
     printList(head);
 
     return 0;
