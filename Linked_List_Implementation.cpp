@@ -82,6 +82,7 @@ void deleteAt(Node* *head, int n){
     free(temp1);
 }
 
+// iterative method
 void reverse(Node* *head){
     Node *current, *prev, *next;
     current = *head;
@@ -93,6 +94,14 @@ void reverse(Node* *head){
         current = next;
     }
     *head = prev;
+}
+
+void reversePrint(Node *head){
+    if (head == NULL){
+        return;
+    }
+    reversePrint(head->next);
+    cout << head->data << " ";
 }
 
 int main(){
@@ -117,7 +126,7 @@ int main(){
     printList(head);
     reverse(&head);
     printList(head);
-
+    // reversePrint(head);
     return 0;
 }
 
