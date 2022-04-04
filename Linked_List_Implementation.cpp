@@ -82,7 +82,6 @@ void deleteAt(Node* *head, int n){
     free(temp1);
 }
 
-// iterative method
 void reverse(Node* *head){
     Node *current, *prev, *next;
     current = *head;
